@@ -1,8 +1,10 @@
+//Función para cargar datos del beyblade
 function cargarBey(){
+    //Obtener id
     const urlParams = new URLSearchParams(window.location.search);
     const beyId = urlParams.get("id");
     const detail = document.getElementById("detalleBey");
-
+    //Obtener datos
     fetch(`http://localhost:3000/beyblades/${beyId}`)
     .then(response => response.json())
     .then(response=>{
@@ -17,7 +19,8 @@ function cargarBey(){
             type = "balance";
         }else{
             type = "";
-        }         
+        } 
+        //Construcción y carga del HTML        
         beyblade+=`<h1 class="beyname ${type}">${response.name}</h1>
         <img src="http://localhost:3000/static/images/${response.image}" alt="beyblade" class="beyimg">
             <div class="data">
@@ -32,6 +35,7 @@ function cargarBey(){
         agregarBotones(beyId)
     })
 }
+//Añadir botones extra
 function agregarBotones(beyId) {
     const botones = document.getElementById('buttons');
     let btns = "";
@@ -43,7 +47,7 @@ function agregarBotones(beyId) {
         window.location.href = 'editar.html?id=' + beyId;
     });
 }
-
+//Función para borrar beyblade desde la API
 function deleteBey(beyId) {
     fetch(`http://localhost:3000/beyblades/${beyId}`, {
         method: 'DELETE',

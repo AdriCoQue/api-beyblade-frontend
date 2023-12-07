@@ -1,8 +1,10 @@
+//Función para editar beyblade
 function cargarBey(){
+    //Obtener id
     const urlParams = new URLSearchParams(window.location.search);
     const beyId = urlParams.get("id");
     const detail = document.getElementById("detalleBey");
-
+    //Obtener datos
     fetch(`http://localhost:3000/beyblades/${beyId}`)
     .then(response => response.json())
     .then(response=>{
@@ -17,7 +19,8 @@ function cargarBey(){
             type = "balance";
         }else{
             type = "";
-        }         
+        }
+        //Cargar formulario HTML para editar datos         
         beyblade+=`
         <form action="" class="addbey" id="modBeyblade" enctype="multipart/form-data">
         <input type="text" name="name" id="name" class="beyname" placeholder="${response.name}">
@@ -98,6 +101,7 @@ function cargarBey(){
         agregarBotones(beyId)
     })
 }
+//Añadir botones
 function agregarBotones(beyId) {
     const botones = document.getElementById("buttons");
     let btns = "";
@@ -105,7 +109,9 @@ function agregarBotones(beyId) {
     <button class="btn save" id="save" onclick="saveBey('${beyId}')">Guardar Cambios</button>`;
     botones.innerHTML = btns;
 }
+//Función para guardar
 function saveBey(beyId){
+    //Obtener datos del formulario
     const formulario = document.getElementById('modBeyblade');
     const formData = new FormData(formulario);
     const newName = formData.get('name');
@@ -120,7 +126,7 @@ function saveBey(beyId){
     .then(response => response.json())
     .then(response=>{  
         const changes = new FormData();
-    
+        //Función para verificar que campos cambiaron
         const addChange = (fieldName, newValue) => {
             if (newValue !== response[fieldName] && newValue.trim() !== '') {
                 changes.append(fieldName, newValue);
@@ -136,6 +142,7 @@ function saveBey(beyId){
         if (newImage) {
             changes.append('image', newImage);
         }
+        //Realizar PATCH únicamente con datos que cambiaron
             fetch(`http://localhost:3000/beyblades/${beyId}`, {
                 method: 'PATCH',
                 body: changes,
