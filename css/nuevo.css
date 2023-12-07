@@ -1,0 +1,93 @@
+body{
+    background-color: white;
+}
+nav{
+    position: fixed; 
+    left:0;
+    top:0;
+    background-color: #000a96;
+    width: 100%;
+    height: 10%;
+    min-height: 2.5em;
+    z-index: 1;
+    padding-top: 0.7vw;
+    position: fixed;
+}
+#relleno{
+    width: 100%;
+    height: 12%;
+    min-height: 3em;
+}
+.navegador{
+    color: white;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 1.8vw;
+    height: 100%;
+    width: 15%;
+    float:left;
+    vertical-align: middle;
+}
+.logo{
+    height: 90%;
+}
+#logo{
+    width: fit-content;
+    margin-left: 45%;  
+}
+.title{
+    width: 100%;
+    text-align: center;
+    margin: 3% 0 0 0;
+    font-family: 'Courier New', Courier, monospace;
+    color: #000b56;
+    font-size: 3vw;
+}
+.btn{
+    border-radius: 2vw;
+    border: 1px black solid;
+    padding: 0.5% 5%;
+    width: 20%;
+    margin: 2% 40%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 1.5vw;
+    background-color: #000a96B8;
+}
+.btn:hover{
+    cursor: pointer;
+    opacity: 90%
+    
+}
+.campo{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2vw;
+    font-weight: bold;
+}
+.formulario{
+    width: 60%;
+    margin: 2% 20%;
+}
+.addbey{
+    margin: 2% 0;
+    width: 100%;
+}
+.texto{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0 1%;
+    border-radius: 1vw;
+    font-size: 1.5vw;
+}
+.selects{
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 1vw;
+    font-size: 1.5vw;
+    padding: 0 1%;
+}
+.files{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5vw;
+}
+.inciso{
+    padding: 1% 0;
+}
